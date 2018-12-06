@@ -1,0 +1,135 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<title>GEM10 - registrazione.html</title>
+<script language="javascript">
+ <!--
+  function verifica() {
+    // Variabili associate ai campi del modulo
+    var nome = document.modulo.nome.value;
+    var cognome = document.modulo.cognome.value;
+
+    var indirizzo = document.modulo.indirizzo.value;
+    var codicefiscale = document.modulo.codicefiscale.value;
+    var cartadicredito = document.modulo.cartadicredito.value;
+    var email = document.modulo.email.value;
+    var password = document.modulo.password.value;
+
+    var regex_nome = "^[a-zA-Z][a-zA-Z\s]";
+    var regex_cognome = "^[a-zA-Z][a-zA-Z\s]";
+    var regex_indirizzo = "^[a-zA-Z][a-zA-Z0-9\s]";
+    var regex_codicefiscale = "^[a-zA-Z]{6}[0-9]{2}[abcdehlmprstABCDEHLMPRST]{1}[0-9]{2}([a-zA-Z]{1}[0-9]{3})[a-zA-Z]{1}$";
+    var regex_cartadicredito = "^[0-9]+$";
+    var regex_email = "[a-zA-Z0-9._%-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}";
+    var regex_password = "[a-zA-Z0-9]{8,16}";
+
+    var errore = false;
+    var msg = "Si sono riscontrati i seguenti errori:\n" ;
+
+     if (!nome.match(regex_nome)  || (nome == "undefined") || nome.length > 15)
+     {
+    	 msg = msg + " - Il campo nome è errato!\n" ;
+    	 errore = true;         
+     }
+     
+     if (!cognome.match(regex_cognome)  || (cognome == "undefined") || cognome.length > 15)
+     {
+    	 msg = msg + " - Il campo cognome è errato!\n" ;
+    	 errore = true;         
+     }
+
+     if (!indirizzo.match(regex_indirizzo)  || (indirizzo == "undefined") || indirizzo.length > 32)
+     {
+    	 msg = msg + " - Il campo indirizzo è errato!\n" ;
+    	 errore = true;         
+     }
+
+     if (!codicefiscale.match(regex_codicefiscale)  || (codicefiscale == "undefined") || codicefiscale.length != 16)
+     {
+    	 msg = msg + " - Il campo codice fiscale è errato!\n" ;
+    	 errore = true;         
+     }
+
+     if (!cartadicredito.match(regex_cartadicredito)  || (cartadicredito == "undefined") || cartadicredito.length != 14)
+     {
+    	 msg = msg + " - Il campo carta di credito è errato!\n" ;
+    	 errore = true;         
+     }
+
+     if (!email.match(regex_email)  || (email == "undefined"))
+     {
+    	 msg = msg + " - Il campo email è errato!\n" ;
+    	 errore = true;         
+     }
+
+     if (!password.match(regex_password)  || (password == "undefined") || password.length < 8 || password.length > 16 )
+     {
+    	 msg = msg + " - Il campo password è errato!\n" ;
+    	 errore = true;         
+     }
+     
+     if (errore==true)
+     {
+    	 alert(msg);
+    	 return false;
+     }
+     else 
+     {
+		return true;
+     }
+
+ }
+ //-->
+</script>     
+</head>
+<body>
+<a href="index.jsp"><img src="imgheader.jpg" width="912" height="150" border="0" alt="GEM10"></a>
+<p>
+    <strong>REGISTRAZIONE:</strong>
+    <br><em>Tutti i campi sono obbligatori</em>
+</p>
+<form method="post" name="modulo" action="Registrazione" onSubmit="return verifica()">
+<table width="900" border="0" cellpadding="0" cellspacing="0">
+  <tr>
+       <td valign="top"><strong>&nbsp;NOME*:</strong></td>
+       <td valign="top"><input type="text" name="nome"/></td>
+       <td valign="top"> Massimo 15 caratteri (Es. Antonio)</td>
+  </tr>
+  <tr>
+          <td valign="top"><strong>&nbsp;COGNOME*:</strong></td>
+          <td valign="top"><input type="text" name="cognome"/></td>
+          <td valign="top"> Massimo 15 caratteri (Es. Rossi)</td>
+  </tr>
+  <tr>
+          <td valign="top"><strong>&nbsp;INDIRIZZO*:</strong></td>
+          <td valign="top"><input type="text" name="indirizzo"/></td>
+          <td valign="top"> Massimo 32 caratteri (Es. via roma n 7)</td>
+  </tr>
+  <tr>
+          <td valign="top"><strong>&nbsp;CODICE FISCALE*:</strong></td>
+          <td valign="top"><input type="text" name="codicefiscale"/> </td>
+          <td valign="top">16 caratteri (Es. ADBDRF85S12F839J)</td>
+  </tr>
+  <tr>
+          <td valign="top"><strong>&nbsp;CARTA DI CREDITO*:</strong></td>
+          <td valign="top"><input type="text" name="cartadicredito"/></td>
+          <td valign="top"> 14 cifre (Es. 12345678901234</td>
+  </tr>
+  <tr>
+          <td valign="top"><strong>&nbsp;EMAIL*:</strong></td>
+          <td valign="top"><input type="text" name="email"/></td>
+          <td valign="top">(Es. email-prova@email.it)</td>
+  </tr>
+  <tr>
+          <td valign="top"><strong>&nbsp;PASSWORD*:</strong></td>
+          <td valign="top"><input type="password" name="password"/></td>
+          <td valign="top"> Minimo 8 caratteri alfanumerici, massimo 16</td>
+  </tr>
+  <tr>
+          <td><br><input name="submit" type="submit" value="INVIA" ></td>
+</table>
+</form>
+<br><a href="index.jsp">Torna alla HomePage</a>
+</body>
+</html>
